@@ -2,7 +2,7 @@
  * Created by MoMo on 2017/4/23.
  */
 import  React from 'react';
-import {View,Text,StyleSheet,ListView} from 'react-native';
+import {View,Text,StyleSheet,ListView,Image} from 'react-native';
 export default class Root extends React.Component{
     constructor(props){
         super(props);
@@ -31,8 +31,16 @@ export default class Root extends React.Component{
             }
         ).done();
     }
-    moviesListRow(){
-
+    moviesListRow(movie){
+        return (
+            <View style={styles.item}>
+                <View style={styles.itemImage}><Image
+                    source={{uri:movie.images.large}}
+                    style={styles.image}
+                /></View>
+                <View style={styles.itemContent}><Text>{movie.title}</Text></View>
+            </View>
+        );
     }
     render(){
         if(!this.state.loaded){
@@ -47,16 +55,26 @@ export default class Root extends React.Component{
         return (
             <View style={styles.container}>
                 <ListView dataSource={this.state.movies}
-                          renderRow={this.moviesListRow()}
+                          renderRow={this.moviesListRow}
                 />
             </View>
         )
     }
 }
 const styles = StyleSheet.create({
+    item:{
+      flexDirection:'row'
+    },
     loading:{
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    image:{
+        width:90,
+        height:120
+    },
+    itemContent:{
+
     },
     loadingText:{
         fontSize: 100,
