@@ -13,7 +13,6 @@ export default class Root extends NavigationPage{
         ...NavigationPage.defaultProps,
         title: 'React Native Demos',
     };
-
     renderPage(){
         return (
             <ScrollView style={{flex:1}}>
