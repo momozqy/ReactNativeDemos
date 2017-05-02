@@ -20,9 +20,11 @@ export default class LoginButton extends Component {
     render() {
         return (
             <TouchableOpacity onPress={this.props.onPressCallback} style={LoginStyles.loginTextView}>
-                <Text style={LoginStyles.loginText} >
-                    {this.props.name}
-                </Text>
+                <Image source={require('../image/loginbutton.png')} style={{alignItems:'center',justifyContent:'center',flexDirection: 'row',width:150,height:45,borderRadius:5}}>
+                    <Text style={LoginStyles.loginText} >
+                        {this.props.name}
+                    </Text>
+                </Image>
             </TouchableOpacity>
         );
     }
@@ -36,10 +38,10 @@ const LoginStyles = StyleSheet.create({
     },
     loginTextView: {
         marginTop: 10,
-        height:50,
-        backgroundColor: '#3281DD',
+        height:45,
+        width:220,
         borderRadius:5,
-        flexDirection: 'row',
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems:'center',
     },

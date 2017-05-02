@@ -10,7 +10,7 @@ import {
 export default class EditView extends Component {
     constructor(props) {
         super(props);
-        this.state = {text: ''};
+        this.state = {text: '',secureText:false};
     }
 
     render() {
@@ -18,6 +18,7 @@ export default class EditView extends Component {
             <View style={LoginStyles.TextInputView}>
                 <TextInput style={LoginStyles.TextInput}
                            placeholder={this.props.name}
+                           secureTextEntry={this.state.secureText}
                            onChangeText={
                                (text) => {
                                    this.setState({text});
@@ -34,7 +35,7 @@ export default class EditView extends Component {
 const LoginStyles = StyleSheet.create({
     TextInputView: {
         marginTop: 10,
-        height:50,
+        height:42,
         backgroundColor: '#ffffff',
         borderRadius:5,
         borderWidth:0.3,
@@ -45,7 +46,8 @@ const LoginStyles = StyleSheet.create({
 
     TextInput: {
         backgroundColor: '#ffffff',
-        height:45,
-        margin:18,
+        height:37,
+        width:200,
+        margin:10,
     },
 });
